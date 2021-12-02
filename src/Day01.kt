@@ -1,17 +1,17 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+
+    fun getLines(): List<Int> {
+        return readInput("input").map { it.toInt() }
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
+    val lines = getLines()
+    var count = 0
+
+    for (i in lines.indices) {
+        if (i > lines.size -2) break
+        val firstNumber = lines[i]
+        val secondNumber = lines[i+1]
+        if (secondNumber > firstNumber) count += 1
     }
-
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
-    val input = readInput("Day01")
-    println(part1(input))
-    println(part2(input))
+    println("Day1 answer: $count")
 }
