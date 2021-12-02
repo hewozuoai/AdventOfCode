@@ -1,9 +1,5 @@
 fun main() {
 
-    fun getLines(): List<Int> {
-        return readInput("input").map { it.toInt() }
-    }
-
     val lines = getLines()
     var count = 0
 
