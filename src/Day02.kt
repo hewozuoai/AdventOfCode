@@ -9,5 +9,5 @@ fun main() {
         val nextThree = lines[i+1] + lines[i+2] + lines[i+3]
         if (nextThree > firstThree) count += 1
     }
-    println("Day1 answer: $count")
+    println("Day2 answer: $count")
 }
