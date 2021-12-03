@@ -18,5 +18,5 @@ fun main() {
 
     val answer = horizontal * depth
 
-    println("Day2-Part1 answer: $answer")
+    println("Day2-Part2 answer: $answer")
 }
