@@ -1,6 +1,6 @@
 fun main() {
 
-    val lines = getLines()
+    val lines = getLines("Day01-input")
     var count = 0
 
     for (i in lines.indices) {

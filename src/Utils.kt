@@ -12,6 +12,6 @@ fun readInput(name: String) = File("src", "$name.txt").readLines()
  */
 fun String.md5(): String = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray())).toString(16)
 
-fun getLines(): List<Int> {
-    return readInput("input").map { it.toInt() }
+fun getLines(file: String): List<Int> {
+    return readInput(file).map { it.toInt() }
 }
