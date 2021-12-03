@@ -19,3 +19,18 @@ fun getLinesAsInts(file: String): List<Int> {
 fun getLines(file: String): List<String> {
     return readInput(file)
 }
+
+fun convertBinaryToDecimal(binary: String): Int {
+    var num = binary.toLong()
+    var decimalNumber = 0
+    var i = 0
+    var remainder: Long
+
+    while (num.toInt() != 0) {
+        remainder = num % 10
+        num /= 10
+        decimalNumber += (remainder * Math.pow(2.0, i.toDouble())).toInt()
+        ++i
+    }
+    return decimalNumber
+}
