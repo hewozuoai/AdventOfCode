@@ -9,5 +9,5 @@ fun main() {
         val secondNumber = lines[i+1]
         if (secondNumber > firstNumber) count += 1
     }
-    println("Day1 answer: $count")
+    println("Day1-Part1 answer: $count")
 }
