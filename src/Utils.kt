@@ -98,3 +98,19 @@ class Board(l1: String, l2: String, l3: String, l4: String, l5: String) {
                 line4.filter { !it.startsWith("*") && !it.endsWith("*") }.map { it.toInt() }.sum() +
                 line5.filter { !it.startsWith("*") && !it.endsWith("*") }.map { it.toInt() }.sum()
 }
+
+class Line(line: String) {
+    var start = Pair(0,0)
+    var end = Pair(0,0)
+
+    init {
+        val array = line.split(" ")
+        start = Pair(array[0].split(",")[0].toInt(), array[0].split(",")[1].toInt())
+        end = Pair(array[2].split(",")[0].toInt(), array[2].split(",")[1].toInt())
+    }
+
+    fun x1(): Int = start.first
+    fun y1(): Int = start.second
+    fun x2(): Int = end.first
+    fun y2(): Int = end.second
+}

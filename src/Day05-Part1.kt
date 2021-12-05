@@ -24,7 +24,7 @@ fun main() {
     println("Day5-Part1 answer: $answer")
 }
 
-fun doChallenge(content: List<String>): Int {
+private fun doChallenge(content: List<String>): Int {
 
     val lines = content.map { Line(it) }
     val filtered = lines.filter { it.x1() == it.x2() || it.y1() == it.y2() }
@@ -40,7 +40,7 @@ private fun collectPoints(filtered: List<Line>): ArrayList<Pair<Int, Int>> {
     return points
 }
 
-fun getPointsForLine(line: Line): Collection<Pair<Int, Int>> {
+private fun getPointsForLine(line: Line): Collection<Pair<Int, Int>> {
     val points = arrayListOf<Pair<Int, Int>>()
     if (line.x1() == line.x2()) {
         for(i in min(line.y1(), line.y2())..max(line.y1(), line.y2())) {
@@ -52,20 +52,4 @@ fun getPointsForLine(line: Line): Collection<Pair<Int, Int>> {
         }
     }
     return points
-}
-
-class Line(line: String) {
-    var start = Pair(0,0)
-    var end = Pair(0,0)
-
-    init {
-        val array = line.split(" ")
-        start = Pair(array[0].split(",")[0].toInt(), array[0].split(",")[1].toInt())
-        end = Pair(array[2].split(",")[0].toInt(), array[2].split(",")[1].toInt())
-    }
-
-    fun x1(): Int = start.first
-    fun y1(): Int = start.second
-    fun x2(): Int = end.first
-    fun y2(): Int = end.second
 }
