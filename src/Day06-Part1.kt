@@ -19,45 +19,7 @@ private fun doChallenge(content: String): Int {
         val newFishes = fishes.count { it.shouldSpawnNewFish() }
         for (j in 1..newFishes) fishes.add(LanternFish())
         fishes.forEach { it.dayPassed() }
-        println("Day $i - $fishes")
     }
 
     return fishes.count()
-}
-
-class LanternFish {
-    var life: Int
-    var updated: Boolean = false
-
-    constructor() {
-        this.life = 8
-        this.updated = true
-    }
-
-    constructor(life: Int) {
-        this.life = life
-    }
-
-    fun dayPassed() {
-        if (!this.updated) this.life -= 1
-        this.updated = false
-    }
-
-    fun shouldSpawnNewFish(): Boolean {
-        if (this.life == 0){
-            resetLife()
-            return true
-        }
-        return false
-    }
-
-    private fun resetLife(){
-        this.updated = true
-        this.life = 6
-    }
-
-    override fun toString(): String {
-        return this.life.toString()
-    }
-
 }
