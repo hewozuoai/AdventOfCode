@@ -150,3 +150,12 @@ class LanternFish {
         return this.life.toString()
     }
 }
+
+fun foundLowPoint(
+    i: Int,
+    array: List<List<Int>>,
+    j: Int,
+    num: Int,
+    line: List<Int>
+) =
+    (i == 0 || array[i - 1][j] > num) && (i == array.size - 1 || array[i + 1][j] > num) && (j == line.size - 1 || array[i][j + 1] > num) && (j == 0 || array[i][j - 1] > num)
