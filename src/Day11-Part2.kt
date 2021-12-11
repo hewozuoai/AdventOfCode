@@ -21,8 +21,6 @@ fun main() {
     println("$day-Part2 answer: $answer")
 }
 
-private var answer = 0
-
 private fun doChallenge(content: List<String>): Int {
     val map = createGrid(9, 9)
     val array = Array(10) { x -> Array(10) { y -> content[x][y].digitToInt() } }
@@ -36,5 +34,5 @@ private fun doChallenge(content: List<String>): Int {
         map.forEach { (x, y) -> if (array[x][y] == FLASHED) array[x][y] = 0 }
     }
 
-    return answer
+    return 0
 }
