@@ -1,6 +1,8 @@
 import java.io.File
 import java.math.BigInteger
 import java.security.MessageDigest
+import kotlin.math.max
+import kotlin.math.min
 
 /**
  * Reads lines from the given input txt file.
@@ -159,3 +161,20 @@ fun foundLowPoint(
     line: List<Int>
 ) =
     (i == 0 || array[i - 1][j] > num) && (i == array.size - 1 || array[i + 1][j] > num) && (j == line.size - 1 || array[i][j + 1] > num) && (j == 0 || array[i][j - 1] > num)
+
+fun createGrid(a: Int, b: Int) = (0..a).flatMap { x -> (0..b).map { y -> x to y } }
+
+const val FLASHED = -1
+const val READY_FOR_FLASH = 10
+fun flash(x: Int, y: Int, array: Array<Array<Int>>) {
+    array[x][y] = FLASHED
+    for (i in (max(x - 1, 0))..(min(x + 1, 9))) {
+        for (j in (max(y - 1, 0))..(min(y + 1, 9))) {
+            val value = array[i][j]
+            if (i in 0..9 && j in 0..9 && value != FLASHED) {
+                array[i][j]++
+                if (array[i][j] >= 10) flash(i, j, array)
+            }
+        }
+    }
+}
