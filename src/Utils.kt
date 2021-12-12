@@ -178,3 +178,13 @@ fun flash(x: Int, y: Int, array: Array<Array<Int>>) {
         }
     }
 }
+
+fun createPathGrid(content: List<String>): HashMap<String, HashSet<String>> {
+    val grid = HashMap<String, HashSet<String>>()
+    content.forEach {
+        val (start, end) = it.split("-")
+        grid.getOrPut(start) { HashSet() }.add(end)
+        grid.getOrPut(end) { HashSet() }.add(start)
+    }
+    return grid
+}
